@@ -1,0 +1,25 @@
+name,year,imdb_rating,num_imdb_votes,mpaa,top-250-rank,genres,director,metascore,num_metascore_positive,num_metascore_mixed,num_metascore_negative,userscore,num_userscore_positive,num_userscore_mixed,num_userscore_negative
+moonlight,2016,7.8,72843,"Rated R for some sexuality, drug use, brief violence, and language throughout",-,"Drama,",Barry Jenkins,99,51,0,0,7.5,452,46,107
+la-la-land,2016,8.5,188765,"Rated PG-13 for some language",61,"Comedy,Drama,Musical,Romance,",Damien Chazelle,93,51,2,0,8.5,936,81,75
+arrival,2016,8.1,258792,"Rated PG-13 for brief strong language",236,"Drama,Mystery,Sci-Fi,Thriller,",Denis Villeneuve,81,47,4,1,8.1,939,102,91
+fences,2016,7.4,28284,"Rated PG-13 for thematic elements, language and some suggestive references",-,"Drama,",Denzel Washington,79,43,5,0,7.4,97,15,12
+hacksaw-ridge,2016,8.3,146044,"Rated R for intense prolonged realistically graphic sequences of war violence including grisly bloody images",141,"Drama,History,War,",Mel Gibson,71,40,7,0,8.3,388,34,15
+hell-or-high-water,2016,7.7,94234,"Rated R for some strong violence, language throughout and brief sexuality",-,"Action,Crime,Drama,Western,",David Mackenzie,88,46,1,0,8.2,368,34,10
+hidden-figures,2016,7.9,48983,"Rated PG for thematic elements and some language",-,"Biography,Drama,History,",Theodore Melfi,74,38,9,0,7.4,144,21,19
+lion,2016,8.0,53694,"Rated PG-13 for thematic material and some sensuality.",-,"Drama,",Garth Davis,69,32,13,0,8.0,118,14,7
+manchester-by-the-sea,2016,8.0,87084,"Rated R for language throughout and some sexual content",-,"Drama,",Kenneth Lonergan,96,51,1,0,8.1,385,30,38
+spotlight,2015,8.1,253107,"Rated R for some language including sexual references",194,"Crime,Drama,History,",Tom McCarthy,93,43,2,0,8.1,594,39,46
+the-big-short,2015,7.8,234483,"Rated R for pervasive language and some sexuality/nudity",-,"Biography,Comedy,Drama,History,",Adam McKay,81,37,6,2,8.2,505,47,19
+bridge-of-spies,2015,7.6,210263,"Rated PG-13 for some violence and brief strong language",-,"Drama,History,Thriller,",Steven Spielberg,81,47,1,0,7.7,412,68,19
+brooklyn,2015,7.5,91324,"Rated PG - 13 for a scene of sexuality and brief strong language",-,"Drama,Romance,",John Crowley,87,41,0,1,8.0,278,42,19
+mad-max-fury-road,2015,8.1,613197,"Rated R for intense sequences of violence throughout, and for disturbing images",196,"Action,Adventure,Sci-Fi,Thriller,",George Miller,90,50,1,0,8.6,3120,176,253
+the-martian,2015,8.0,539723,"Rated PG-13 for some strong language, injury images, and brief nudity.",-,"Adventure,Drama,Sci-Fi,",Ridley Scott,80,40,6,0,8.0,1360,160,83
+the-revenant,2015,8.0,482086,"Rated R for strong frontier combat and violence including gory images, a sexual assault, language and brief nudity",-,"Adventure,Drama,Thriller,Western,",Alejandro G. Iñárritu,76,41,8,1,8.0,1255,156,91
+room,2015,8.2,209598,"Rated R for language",133,"Drama,",Lenny Abrahamson,86,39,3,1,8.4,453,28,29
+birdman,2014,7.8,428943,"Rated R for language  throughout, some sexual content and brief  violence",-,"Comedy,Drama,Romance,",Alejandro G. Iñárritu,88,43,4,2,8.1,1283,122,128
+american-sniper,2014,7.3,346261,"Rated R for strong and disturbing war violence, and language throughout including some sexual references",-,"Action,Biography,Drama,History,Thriller,War,",Clint Eastwood,72,36,12,0,6.6,624,180,164
+the-grand-budapest-hotel,2014,8.1,517153,"Rated R for language, some sexual content and violence",199,"Adventure,Comedy,Drama,",Wes Anderson,88,45,3,0,8.4,970,62,51
+the-imitation-game,2014,8.1,520436,"Rated PG-13 for some sexual references, mature thematic material and historical smoking",249,"Biography,Drama,Thriller,War,",Morten Tyldum,73,39,10,0,8.1,618,64,23
+selma,2014,7.5,65927,"Rated PG-13 for disturbing thematic material including violence, a suggestive moment, and brief strong language",-,"Biography,Drama,History,",Ava DuVernay,89,45,1,0,7.2,288,44,52
+the-theory-of-everything,2014,7.7,291542,"Rated PG-13 for some thematic elements and suggestive material",-,"Biography,Drama,Romance,",James Marsh,72,36,11,0,7.8,368,55,22
+whiplash,2014,8.5,457787,"Rated R for strong language including some sexual references",45,"Drama,Music,",Damien Chazelle,88,48,1,0,8.9,1032,41,36
