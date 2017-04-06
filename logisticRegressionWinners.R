@@ -4,25 +4,46 @@ rm(list = ls())
 # Date: April 6th, 2017
 # Purpose: Determine probability of oscar winner with logistic regression
 
-mydata <- read.csv("~/coding/482/project/sample_imdb_metacritic_data.csv", header = TRUE, sep = ",", quote = "\"",
+# read in data from file
+mydata <- read.csv("~/coding/482/project/movies.csv", header = TRUE, sep = ",", quote = "\"",
   dec = ".", fill = TRUE, comment.char = "")
 
+# checking the data
 dim(mydata)
 names(mydata)
 
 attach(mydata)
 summary(mydata)
 
+# convert imdb_ratings from strings to numeric
+imdb_rating <- as.numeric(as.character(imdb_rating))
+num_imdb_votes <- as.numeric(as.character(num_imdb_votes))
+metascore_rating <- as.numeric(as.character(metascore_rating))
 
+# do logistic regression
 probs <- glm(winner ~ imdb_rating, family = binomial)
 summary(probs)
 
-plot(imdb_rating, winner)
+# plot results
+plot(imdb_rating, winner,xlim=c(6,9.5),xlab="IMdB Rating",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(imdb_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for metascore
+probs.meta <- glm(winner ~ metascore_rating, family = binomial)
+summary(probs)
+
+# plot results
+plot(imdb_rating, winner,xlim=c(6,9.5),xlab="IMdB Rating",ylab="Probability of Winning Oscar")
 curve(predict(probs,data.frame(imdb_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 
-m <- glm(winner ~ imdb_rating + income + student, family = binomial)
+# multi variable logistic regression
+m <- glm(winner ~ imdb_rating + num_imdb_votes + metascore_rating, family = binomial)
 summary(m)
+
+###################################################################
+# Accuracy / Precision Calculation + Visualization (not yet adapted)
+###################################################################
 
 pred.data <- data.frame(balance = c(1000,2000,3000),income=1000, student="No")
 predict(m, pred.data, type="response")

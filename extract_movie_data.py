@@ -272,7 +272,7 @@ def make_csv(dict_of_movies):
 		not contain any spaces or colons
 	"""
 
-	with open("movies2.csv", 'w') as csv_file:
+	with open("movies.csv", 'w') as csv_file:
 		# write headers
 		csv_file.write("name,year,imdb_rating,num_imdb_votes,mpaa,top-250-rank," \
 		             + "genres,director,metascore_rating,num_metascore_positive," \
@@ -281,9 +281,10 @@ def make_csv(dict_of_movies):
 					 + "num_userscore_negative,all-critics-numbers," \
 					 + "all_average_rating,all_reviews_counted,all_fresh," \
 					 + "all_rotten,top-critics-numbers,top_average_rating," \
-					 + "top_reviews_counted,top_fresh,top_rotten,rt_audience_score\n")
+					 + "top_reviews_counted,top_fresh,top_rotten,rt_audience_score,winner\n")
 
 		# write info for each movie
+		lastYear = -1;
 		for year, movies in sorted(dict_of_movies.iteritems(), reverse=True):
 			for movie in movies:
 				print(str(year) + " - " + movie)
@@ -319,10 +320,8 @@ def make_csv(dict_of_movies):
 					csv_file.write(genre + ",")
 
 				# continue writing the data
-				if metacritic_info == None:
-					csv_file.write("\n")
-					continue
-				csv_file.write("\","
+				if metacritic_info == None: csv_file.write("\",,,,,,,,,,")
+				else: csv_file.write("\","
 				            + str(imdb_info["director"]) + "," \
 			  				+ str(metacritic_info["metascore"]) + "," \
 			  				+ str(metacritic_info["num_metascore_positive"]) + "," \
@@ -334,10 +333,8 @@ def make_csv(dict_of_movies):
 			  				+ str(metacritic_info["num_userscore_negative"]) + ",")
 
 				# # write the rotten tomatoes data
-				if rotten_tomatoes_info == None:
-					csv_file.write("\n")
-					continue
-				csv_file.write( \
+				if rotten_tomatoes_info == None: csv_file.write(",,,,,,,,,,,")
+				else: csv_file.write( \
 							  str(rotten_tomatoes_info["all-critics-numbers"]) + ","
 							+ str(rotten_tomatoes_info["all_Average_Rating"]) + ","
 							+ str(rotten_tomatoes_info["all_Reviews_Counted"]) + ","
@@ -348,7 +345,13 @@ def make_csv(dict_of_movies):
 							+ str(rotten_tomatoes_info["top_Reviews_Counted"]) + "," \
 							+ str(rotten_tomatoes_info["top_Fresh"]) + "," \
 							+ str(rotten_tomatoes_info["top_Rotten"]) + "," \
-							+ str(rotten_tomatoes_info["rt_audience_score"]) + "\n")
+							+ str(rotten_tomatoes_info["rt_audience_score"]) + ",")
+
+				if (year != lastYear): 
+					lastYear = year
+					csv_file.write("1\n");
+				else:
+					csv_file.write("0\n");
 ########### START ###########
 movies = {}
 	
@@ -374,7 +377,8 @@ file_object = open("best_picture_nominations.txt","r")
 lines = file_object.readlines();
 current = 0
 for line in lines:
-	line = line.rstrip().replace(" ", "-").replace(":","-").replace("--","-").replace("'","").lower();
+	line = line.rstrip().replace(" ", "-").replace(":","-") \
+		.replace("--","-").replace("'","").replace(",","").lower();
 	if line == "END": break
 	if "2002" <= line <= "2017":
 		current = int(line)
