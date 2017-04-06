@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!usr/bin/python
 
 """
 Extracts movie data (critic ratings, user ratings, etc.) from IMDB, metacritic,
@@ -272,7 +272,7 @@ def make_csv(dict_of_movies):
 		not contain any spaces or colons
 	"""
 
-	with open("movies.csv", 'w') as csv_file:
+	with open("movies2.csv", 'w') as csv_file:
 		# write headers
 		csv_file.write("name,year,imdb_rating,num_imdb_votes,mpaa,top-250-rank," \
 		             + "genres,director,metascore_rating,num_metascore_positive," \
@@ -306,7 +306,6 @@ def make_csv(dict_of_movies):
 				if rotten_tomatoes_info == None:
 					rotten_tomatoes_info = get_rotten_tomatoes_info(movie)
 
-
 				# start writing the data about the movie
 				csv_file.write(movie + "," + str(year) + ","
 				              + str(imdb_info["rating"]) + "," \
@@ -320,6 +319,9 @@ def make_csv(dict_of_movies):
 					csv_file.write(genre + ",")
 
 				# continue writing the data
+				if metacritic_info == None:
+					csv_file.write("\n")
+					continue
 				csv_file.write("\","
 				            + str(imdb_info["director"]) + "," \
 			  				+ str(metacritic_info["metascore"]) + "," \
@@ -332,6 +334,9 @@ def make_csv(dict_of_movies):
 			  				+ str(metacritic_info["num_userscore_negative"]) + ",")
 
 				# # write the rotten tomatoes data
+				if rotten_tomatoes_info == None:
+					csv_file.write("\n")
+					continue
 				csv_file.write( \
 							  str(rotten_tomatoes_info["all-critics-numbers"]) + ","
 							+ str(rotten_tomatoes_info["all_Average_Rating"]) + ","
@@ -344,26 +349,37 @@ def make_csv(dict_of_movies):
 							+ str(rotten_tomatoes_info["top_Fresh"]) + "," \
 							+ str(rotten_tomatoes_info["top_Rotten"]) + "," \
 							+ str(rotten_tomatoes_info["rt_audience_score"]) + "\n")
-
 ########### START ###########
 movies = {}
-
+	
 # these are the movies that were nominated for best picture according to
 # wikipedia: https://en.wikipedia.org/wiki/Academy_Award_for_Best_Picture .
 # Movie names should NOT have any colons or spaces. Instead, they should be
 # replaced with dashes (-)
-movies[2016] = ["moonlight", "la-la-land", "arrival", "fences", "hacksaw-ridge", \
-          "hell-or-high-water", "hidden-figures", "lion", "manchester-by-the-sea"]
-movies[2015] = ["spotlight", "the-big-short", "bridge-of-spies", "brooklyn", \
-		  "mad-max-fury-road", "the-martian", "the-revenant", "room"]
-movies[2014] = ["birdman", "american-sniper", "boyhood",
-          "the-grand-budapest-hotel", "the-imitation-game", "selma",
-		  "the-theory-of-everything", "whiplash"]
-movies[2013] = ["12-years-a-slave", "american-hustle", "dallas-buyers-club",
-				"captain-phillips", "gravity", "nebraska", "philomena",
-				"the-wolf-of-wall-street"]
-movies[2012] = ["argo", "life-of-pi", "les-miserables", "lincoln",
-				"django-unchained", "beasts-of-the-southern-wild",
-				"silver-linings-playbook","zero-dark-thirty", "amour"]
+#movies[2016] = ["moonlight", "la-la-land", "arrival", "fences", "hacksaw-ridge", \
+#          "hell-or-high-water", "hidden-figures", "lion", "manchester-by-the-sea"]
+#movies[2015] = ["spotlight", "the-big-short", "bridge-of-spies", "brooklyn", \
+#		  "mad-max-fury-road", "the-martian", "the-revenant", "room"]
+#movies[2014] = ["birdman", "american-sniper", "boyhood",
+#          "the-grand-budapest-hotel", "the-imitation-game", "selma",
+#		  "the-theory-of-everything", "whiplash"]
+#movies[2013] = ["12-years-a-slave", "american-hustle", "dallas-buyers-club",
+#				"captain-phillips", "gravity", "nebraska", "philomena",
+#				"the-wolf-of-wall-street"]
+#movies[2012] = ["argo", "life-of-pi", "les-miserables", "lincoln",
+#				"django-unchained", "beasts-of-the-southern-wild",
+#				"silver-linings-playbook","zero-dark-thirty", "amour"]
+
+file_object = open("best_picture_nominations.txt","r")
+lines = file_object.readlines();
+current = 0
+for line in lines:
+	line = line.rstrip().replace(" ", "-").replace(":","-").replace("--","-").replace("'","").lower();
+	if line == "END": break
+	if "2002" <= line <= "2017":
+		current = int(line)
+		movies[current] = []
+	else:
+		movies[current] += [line]
 
 make_csv(movies)
