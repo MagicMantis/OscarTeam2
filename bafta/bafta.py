@@ -13,7 +13,6 @@ class BAFTA:
 		for line in lines:
 			if winner: 
 				self.picturesWin[line] += 1
-				self.picturesNom[line] += 1
 				winner = False
 			elif (line == "\n"):
 				winner = True
@@ -29,12 +28,27 @@ class BAFTA:
 		for line in lines:
 			if winner: 
 				self.directorWin[line] += 1
-				self.directorNom[line] += 1
 				winner = False
 			elif (line == "\n"):
 				winner = True
 			else:
 				self.directorNom[line] += 1
+
+
+		#best actor
+		file_object = open("./bafta_best_actor","r")
+		lines = file_object.readlines();
+		self.actorWin = defaultdict(lambda: 0)
+		self.actorNom = defaultdict(lambda: 0)
+		winner = True
+		for line in lines:
+			if winner: 
+				self.actorWin[line] += 1
+				winner = False
+			elif (line == "\n"):
+				winner = True
+			else:
+				self.actorNom[line] += 1
 
 
 	def get_best_picture_winner(self, name):
@@ -59,6 +73,17 @@ class BAFTA:
 			return 0
 		return self.directorNom[name]
 
+	def get_best_actor_winner(self, name):
+		if not name in self.actorWin:
+			return 0
+		return self.actorWin[name]
+
+	def get_best_actor_nom(self, name):
+		if not name in self.actorNom:
+			print name
+			return 0
+		return self.actorNom[name]
+
 
 def print_best_picture():
 	file_object = open(sys.argv[1],"r")
@@ -79,4 +104,12 @@ def print_best_director():
 	for line in lines:
 		print ba.get_best_director_nom(line), ba.get_best_director_winner(line)
 
-print_best_director()
+def print_best_actor():
+	file_object = open(sys.argv[1],"r")
+	lines = file_object.readlines();
+	current = 0
+	ba = BAFTA();
+	for line in lines:
+		print ba.get_best_actor_nom(line), ba.get_best_actor_winner(line)
+
+print_best_actor()
