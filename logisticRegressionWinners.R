@@ -32,7 +32,7 @@ curve(predict(probs,data.frame(imdb_rating=x),type="resp"),add=TRUE) # draws a c
 probs.meta <- glm(winner ~ metascore_rating, family = binomial)
 summary(probs.meta)
 
-plot(metascore_rating, winner,xlim=c(6,9.5),xlab="Metascore Rating",ylab="Probability of Winning Oscar")
+plot(metascore_rating, winner,xlab="Metascore Rating",ylab="Probability of Winning Oscar")
 curve(predict(probs.meta,data.frame(metascore_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 # do logistic regression for negative metascore
@@ -44,10 +44,10 @@ curve(predict(probs.neg,data.frame(num_metascore_negative=x),type="resp"),add=TR
 
 
 # multi variable logistic regression
-m <- glm(winner ~ imdb_rating + num_imdb_votes + metascore_rating, family = binomial)
+m <- glm(winner ~ imdb_rating + metascore_rating, family = binomial)
 summary(m)
 
-plot(imdb_rating + num_imdb_votes + metascore_rating, winner,xlab="",ylab="Probability of Winning Oscar")
+plot(imdb_rating + metascore_rating, winner,xlab="",ylab="Probability of Winning Oscar")
 curve(predict(m,data.frame(metascore_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 
