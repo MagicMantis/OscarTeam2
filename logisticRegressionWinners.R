@@ -19,27 +19,37 @@ summary(mydata)
 imdb_rating <- as.numeric(as.character(imdb_rating))
 num_imdb_votes <- as.numeric(as.character(num_imdb_votes))
 metascore_rating <- as.numeric(as.character(metascore_rating))
+num_metascore_negative <- as.numeric(as.character(num_metascore_negative))
 
 # do logistic regression
 probs <- glm(winner ~ imdb_rating, family = binomial)
 summary(probs)
 
-# plot results
-plot(imdb_rating, winner,xlim=c(6,9.5),xlab="IMdB Rating",ylab="Probability of Winning Oscar")
+plot(imdb_rating, winner,xlab="IMdB Rating",ylab="Probability of Winning Oscar")
 curve(predict(probs,data.frame(imdb_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 # do logistic regression for metascore
 probs.meta <- glm(winner ~ metascore_rating, family = binomial)
-summary(probs)
+summary(probs.meta)
 
-# plot results
-plot(imdb_rating, winner,xlim=c(6,9.5),xlab="IMdB Rating",ylab="Probability of Winning Oscar")
-curve(predict(probs,data.frame(imdb_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+plot(metascore_rating, winner,xlim=c(6,9.5),xlab="Metascore Rating",ylab="Probability of Winning Oscar")
+curve(predict(probs.meta,data.frame(metascore_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for negative metascore
+probs.neg <- glm(winner ~ metascore_rating, family = binomial)
+summary(probs.meta)
+
+plot(num_metascore_negative, winner,xlab="Metascore Rating",ylab="Probability of Winning Oscar")
+curve(predict(probs.neg,data.frame(num_metascore_negative=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 
 # multi variable logistic regression
 m <- glm(winner ~ imdb_rating + num_imdb_votes + metascore_rating, family = binomial)
 summary(m)
+
+plot(imdb_rating + num_imdb_votes + metascore_rating, winner,xlab="",ylab="Probability of Winning Oscar")
+curve(predict(m,data.frame(metascore_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
 
 ###################################################################
 # Accuracy / Precision Calculation + Visualization (not yet adapted)

@@ -17,6 +17,7 @@ Dependencies:
 
 from imdb import IMDb
 import requests
+import sys
 
 ########### function defintions ###########
 def get_imdb_info(movie_name):
@@ -272,7 +273,7 @@ def make_csv(dict_of_movies):
 		not contain any spaces or colons
 	"""
 
-	with open("movies.csv", 'w') as csv_file:
+	with open("movies2.csv", 'w') as csv_file:
 		# write headers
 		csv_file.write("name,year,imdb_rating,num_imdb_votes,mpaa,top-250-rank," \
 		             + "genres,director,metascore_rating,num_metascore_positive," \
@@ -373,7 +374,7 @@ movies = {}
 #				"django-unchained", "beasts-of-the-southern-wild",
 #				"silver-linings-playbook","zero-dark-thirty", "amour"]
 
-file_object = open("best_picture_nominations.txt","r")
+file_object = open(sys.argv[1],"r")
 lines = file_object.readlines();
 current = 0
 for line in lines:
