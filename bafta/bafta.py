@@ -51,6 +51,22 @@ class BAFTA:
 				self.actorNom[line] += 1
 
 
+		#best actress
+		file_object = open("./bafta_best_actress","r")
+		lines = file_object.readlines();
+		self.actressWin = defaultdict(lambda: 0)
+		self.actressNom = defaultdict(lambda: 0)
+		winner = True
+		for line in lines:
+			if winner: 
+				self.actressWin[line] += 1
+				winner = False
+			elif (line == "\n"):
+				winner = True
+			else:
+				self.actressNom[line] += 1
+
+
 	def get_best_picture_winner(self, name):
 		if not name in self.picturesNom:
 			return 0
@@ -86,6 +102,18 @@ class BAFTA:
 		return self.actorNom[name]
 
 
+	def get_best_actress_winner(self, name):
+		if not name in self.actressWin:
+			return 0
+		return self.actressWin[name]
+
+	def get_best_actress_nom(self, name):
+		if not name in self.actressNom:
+			#print name
+			return 0
+		return self.actressNom[name]
+
+
 def print_best_picture():
 	file_object = open(sys.argv[1],"r")
 	lines = file_object.readlines();
@@ -103,7 +131,7 @@ def print_best_director():
 	current = 0
 	ba = BAFTA();
 	for line in lines:
-		print line.strip(), ba.get_best_director_nom(line), ba.get_best_director_winner(line)
+		print ba.get_best_director_nom(line), ba.get_best_director_winner(line)
 
 def print_best_actor():
 	file_object = open(sys.argv[1],"r")
@@ -111,6 +139,15 @@ def print_best_actor():
 	current = 0
 	ba = BAFTA();
 	for line in lines:
-		print line.strip(), ba.get_best_actor_nom(line), ba.get_best_actor_winner(line)
+		print ba.get_best_actor_nom(line), ba.get_best_actor_winner(line)
 
-print_best_director()
+
+def print_best_actress():
+	file_object = open(sys.argv[1],"r")
+	lines = file_object.readlines();
+	current = 0
+	ba = BAFTA();
+	for line in lines:
+		print ba.get_best_actress_nom(line), ba.get_best_actress_winner(line)
+
+print_best_actress()
