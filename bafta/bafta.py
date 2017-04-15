@@ -12,13 +12,14 @@ class BAFTA:
 		winner = True
 		for line in lines:
 			if winner: 
-				self.picturesWin[line] += 1
+				self.picturesWin[line.strip()] += 1
+				self.picturesNom[line.strip()] += 1
 				winner = False
 			elif (line == "\n"):
 				winner = True
 			else:
-				self.picturesNom[line] += 1
-
+				self.picturesNom[line.strip()] += 1
+		
 		#best director
 		file_object = open("./bafta_best_director","r")
 		lines = file_object.readlines();
@@ -68,12 +69,12 @@ class BAFTA:
 
 
 	def get_best_picture_winner(self, name):
-		if not name in self.picturesNom:
+		if not name in self.picturesWin:
 			return 0
 		return self.picturesWin[name]
 
 	def get_best_picture_nom(self, name):
-		if not name in self.picturesWin:
+		if not (name in self.picturesNom or name in self.picturesWin):
 			#use this to see if the name was in the Bafta dictionary
 			#print name
 			return 0
@@ -120,10 +121,11 @@ def print_best_picture():
 	current = 0
 	ba = BAFTA();
 	for line in lines:
+		line = line.strip()
 		if "2002" <= line <= "2017":
 			continue
 		else:
-			print "hello"
+			print ba.get_best_picture_nom(line), ba.get_best_picture_winner(line)
 
 def print_best_director():
 	file_object = open(sys.argv[1],"r")
@@ -150,4 +152,4 @@ def print_best_actress():
 	for line in lines:
 		print ba.get_best_actress_nom(line), ba.get_best_actress_winner(line)
 
-print_best_picture()
+print_best_actress()
