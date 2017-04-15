@@ -97,9 +97,6 @@ summary(m)
 
 attach(mydata)
 
-pred.data <- data.frame(balance = c(1000,2000,3000),income=1000, student="No")
-predict(m, mydata, type="response")
-
 pred.probs <- predict (m, mydata, type = "response")
 pred.winner <- rep("No", nrow(mydata))
 pred.winner[pred.probs > 0.2] <- "Yes"

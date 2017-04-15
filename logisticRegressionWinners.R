@@ -26,6 +26,7 @@ metascore_rating <- as.numeric(as.character(metascore_rating))
 num_metascore_positive <- as.numeric(as.character(num_metascore_positive))
 num_metascore_mixed <- as.numeric(as.character(num_metascore_mixed))
 num_metascore_negative <- as.numeric(as.character(num_metascore_negative))
+userscore_rating <- as.numeric(as.character(userscore_rating))
 num_userscore_positive <- as.numeric(as.character(num_userscore_positive))
 num_userscore_mixed <- as.numeric(as.character(num_userscore_mixed))
 num_userscore_negative <- as.numeric(as.character(num_userscore_negative))
@@ -54,26 +55,41 @@ plot(imdb_rating, winner,xlab="IMdB Rating",ylab="Probability of Winning Oscar")
 curve(predict(probs,data.frame(imdb_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 # do logistic regression for metascore
-probs.meta <- glm(winner ~ metascore_rating, family = binomial)
-summary(probs.meta)
+probs <- glm(winner ~ metascore_rating, family = binomial)
+summary(probs)
 
 plot(metascore_rating, winner,xlab="Metascore Rating",ylab="Probability of Winning Oscar")
 curve(predict(probs.meta,data.frame(metascore_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 # do logistic regression for negative metascore
-probs.neg <- glm(winner ~ neg_, family = binomial)
-summary(probs.meta)
+probs <- glm(winner ~ neg_, family = binomial)
+summary(probs)
 
 plot(num_metascore_negative, winner,xlab="Metascore Rating",ylab="Probability of Winning Oscar")
-curve(predict(probs.neg,data.frame(num_metascore_negative=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+curve(predict(probs,data.frame(num_metascore_negative=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for top_rotten
+probs <- glm(winner ~ top_rotten, family = binomial)
+summary(probs)
+
+plot(top_rotten, winner,xlab="top_rotten",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(top_rotten=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 
-# multi variable logistic regression
-m <- glm(winner ~ imdb_rating + metascore_rating, family = binomial)
-summary(m)
+# do logistic regression for bafta win
+probs <- glm(winner ~ bafta_winner, family = binomial)
+summary(probs)
 
-plot(imdb_rating + metascore_rating, winner,xlab="",ylab="Probability of Winning Oscar")
-curve(predict(m,data.frame(metascore_rating=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+plot(bafta_winner, winner,xlab="bafta_winner",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(bafta_winner=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for bafta loss
+probs <- glm(winner ~ bafta_loser, family = binomial)
+summary(probs)
+
+plot(bafta_loser, winner,xlab="bafta_loser",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(bafta_loser=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
 
 ##################################################################
 # Tests for Non-Numeric Predictors
@@ -96,18 +112,23 @@ summary(m)
 # Train Model On Multiple Predictors
 ##########################################
 
-m <- glm(winner ~ imdb_rating + num_imdb_votes + metascore_rating, family = binomial)
+m <- glm(winner ~ imdb_rating + num_imdb_votes + metascore_rating + 
+         + all.critics.numbers + top_average_rating 
+         + rt_audience_score + bafta_winner, family = binomial)
+summary(m)
 
 ###################################################################
 # Accuracy / Precision Calculation + Visualization (not yet adapted)
 ###################################################################
 
-pred.data <- data.frame(balance = c(1000,2000,3000),income=1000, student="No")
-predict(m, pred.data, type="response")
+attach(mydata)
 
-pred.probs <- predict (m, type = "response")
-pred.default <- rep("No", nrow(Default))
-pred.default[pred.probs > 0.5] <- "Yes"
+pred.probs <- predict (m, mydata, type = "response")
+pred.winner <- rep("No", nrow(mydata))
+pred.winner[pred.probs > 0.2] <- "Yes"
+
+data.frame(name, pred.probs, winner, year)
+write.csv(data.frame(name, pred.probs, winner, year), file = "./Movies/probs_of_winning.csv")
 
 confusion.matrix <- table(default, pred.default)
 print(addmargins(confusion.matrix))
