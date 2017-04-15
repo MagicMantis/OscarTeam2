@@ -40,6 +40,10 @@ rt_audience_score <- as.numeric(as.character(rt_audience_score))
 winner <- as.numeric(as.character(winner))
 bafta_winner <- as.numeric(as.character(bafta_winner))
 bafta_loser <- as.numeric(as.character(bafta_loser))
+gg_drama_nom <- as.numeric(as.character(gg_drama_nom))
+gg_drama_win <- as.numeric(as.character(gg_drama_win))
+gg_musical_nom <- as.numeric(as.character(gg_musical_nom))
+gg_musical_win <- as.numeric(as.character(gg_musical_win))
 
 attach(training_data)
 
@@ -89,6 +93,34 @@ summary(probs)
 
 plot(bafta_loser, winner,xlab="bafta_loser",ylab="Probability of Winning Oscar")
 curve(predict(probs,data.frame(bafta_loser=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for gg musical nom
+probs <- glm(winner ~ gg_musical_nom, family = binomial)
+summary(probs)
+
+plot(gg_musical_nom, winner,xlab="gg_musical_nom",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(gg_musical_nom=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for gg musical win
+probs <- glm(winner ~ gg_musical_win, family = binomial)
+summary(probs)
+
+plot(gg_musical_win, winner,xlab="gg_musical_win",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(gg_musical_win=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for gg musical win
+probs <- glm(winner ~ gg_drama_nom, family = binomial)
+summary(probs)
+
+plot(gg_drama_nom, winner,xlab="gg_drama_nom",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(gg_drama_nom=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
+
+# do logistic regression for gg musical win
+probs <- glm(winner ~ gg_drama_win, family = binomial)
+summary(probs)
+
+plot(gg_drama_win, winner,xlab="gg_drama_nom",ylab="Probability of Winning Oscar")
+curve(predict(probs,data.frame(gg_drama_win=x),type="resp"),add=TRUE) # draws a curve based on prediction from logistic regression model
 
 
 ##################################################################
