@@ -1,5 +1,5 @@
 Actress,Oscar - Lost,Oscar - Won,GG (Drama) - Won,GG (Drama) - Lost,GG (Musical) - Won,GG (Musical) - Lost,CC - Won,CC - Lost,SAG - Won,SAG - Lost,BAFTA - Won,BAFTA - Lost
-Amy Adams,1,0,0,0,2,1,0,1,0,1,0,3
+Amy Adams,1,0,0,0,2,1,0,1,0,1,0,2
 Angelina Jolie,1,0,0,2,0,1,0,2,0,2,0,1
 Anne Hathaway,1,0,0,1,0,1,0,0,0,1,0,0
 Annette Bening,3,0,0,2,2,2,0,2,1,2,1,1
@@ -31,10 +31,10 @@ Keisha Castle-Hughes,1,0,0,0,0,0,0,0,0,0,0,0
 Laura Linney,2,0,0,1,0,1,0,0,0,1,0,0
 Marion Cotillard,1,1,0,1,1,1,0,3,0,2,1,1
 Melissa Leo,1,0,0,0,0,0,0,1,0,1,0,0
-Meryl Streep,13,2,3,10,2,7,0,3,1,9,2,10
+Meryl Streep,13,2,3,10,2,7,0,3,1,9,2,9
 Michelle Williams,2,0,0,1,1,0,0,2,0,1,0,1
 Naomi Watts,2,0,0,1,0,0,0,2,0,2,0,1
-Natalie Portman,0,1,1,0,0,0,1,0,1,1,1,1
+Natalie Portman,0,1,1,0,0,0,1,0,1,1,1,0
 Nicole Kidman,2,1,1,4,2,0,1,4,0,2,1,2
 Penélope Cruz,1,0,0,1,0,0,0,1,0,1,0,1
 Quvenzhané Wallis,1,0,0,0,0,1,0,1,0,0,0,0
@@ -47,3 +47,6 @@ Samantha Morton,1,0,0,0,0,0,0,1,0,0,0,0
 Sandra Bullock,1,1,1,1,0,3,0,1,1,1,0,1
 Saoirse Ronan,1,0,0,1,0,0,0,2,0,1,0,2
 Viola Davis,1,0,0,1,0,0,1,0,1,0,0,1
+Emma Stone,0,0,0,0,1,1,0,1,1,0,0,0
+Isabelle Huppert,0,0,0,0,0,0,0,1,0,0,0,0
+Ruth Negga,0,0,0,1,0,0,0,1,0,0,0,0
