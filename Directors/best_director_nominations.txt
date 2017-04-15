@@ -23,7 +23,7 @@ Clint Eastwood
 Stephen Frears
 Paul Greengrass
 Alejandro G. Iñárritu
-Joel Coen Ethan Coen
+Joel Coen
 Paul Thomas Anderson
 Tony Gilroy
 Jason Reitman
@@ -41,7 +41,6 @@ Quentin Tarantino
 Tom Hooper
 Darren Aronofsky
 Joel Coen
-Ethan Coen
 David Fincher
 David O. Russell
 Michel Hazanavicius

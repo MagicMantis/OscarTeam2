@@ -150,4 +150,4 @@ def print_best_actress():
 	for line in lines:
 		print ba.get_best_actress_nom(line), ba.get_best_actress_winner(line)
 
-print_best_actress()
+print_best_picture()
