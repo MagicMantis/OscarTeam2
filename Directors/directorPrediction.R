@@ -5,7 +5,7 @@ rm(list = ls())
 # Purpose: Determine probability of oscar winner with logistic regression
 
 # read in data from file
-mydata <- read.csv("~/coding/482/project/director_data_final.csv", header = TRUE, sep = ",", quote = "\"",
+mydata <- read.csv("~/coding/482/project/Directors/director_data_formatted.csv", header = TRUE, sep = ",", quote = "\"",
                    dec = ".", fill = TRUE, comment.char = "")
 
 training_data <- mydata[1:70,]
@@ -27,6 +27,8 @@ CCLost <- as.numeric(as.character(CCLost))
 BAFTAWon <- as.numeric(as.character(BAFTAWon))
 BAFTALost <- as.numeric(as.character(BAFTALost))
 Winner <- as.numeric(as.character(Winner))
+
+attach(training_data)
 
 # do logistic regression for Oscar Lost
 probs <- glm(Winner ~ OscarLost, family = binomial)
@@ -100,7 +102,7 @@ predict(m, mydata, type="response")
 
 pred.probs <- predict (m, mydata, type = "response")
 pred.winner <- rep("No", nrow(mydata))
-pred.winner[pred.probs > 0.5] <- "Yes"
+pred.winner[pred.probs > 0.2] <- "Yes"
 
 data.frame(Director, pred.probs)
 write.csv(data.frame(Director, pred.probs), file = "./Directors/probs_of_winning.csv")
@@ -109,3 +111,4 @@ confusion.matrix <- table(default, pred.default)
 print(addmargins(confusion.matrix))
 
 print(c("accuracy", (confusion.matrix[1,1] + confusion.matrix[2,2]) / 10000 ))
+
