@@ -1,76 +1,108 @@
-"","Director","pred.probs"
-"1","Roman Polanski",0.913139019595787
-"2","Pedro Almodóvar",0.409421780741066
-"3","Stephen Daldry",0.014621527490145
-"4","Rob Marshall",0.0430332289357415
-"5","Martin Scorsese",0.261979706612048
-"6","Peter Jackson",0.387010438102776
-"7","Sofia Coppola",0.0160341496403156
-"8","Clint Eastwood",0.23319903609046
-"9","Fernando Meirelles",0.0765784165918961
-"10","Peter Weir",0.225251020387544
-"11","Clint Eastwood",0.23319903609046
-"12","Taylor Hackford",0.0063375260804682
-"13","Mike Leigh",0.182046442143565
-"14","Alexander Payne",0.0300209222188211
-"15","Martin Scorsese",0.261979706612048
-"16","Ang Lee",0.812947107076715
-"17","George Clooney",0.0406129818257719
-"18","Paul Haggis",0.0342259460893882
-"19","Bennett Miller",0.0890839475149668
-"20","Steven Spielberg",0.111072499696047
-"21","Martin Scorsese",0.261979706612048
-"22","Clint Eastwood",0.23319903609046
-"23","Stephen Frears",0.0287074843259534
-"24","Paul Greengrass",0.170855068235004
-"25","Alejandro G. Iñárritu",0.349551673789863
-"26","Joel Coen",0.945183961662515
-"27","Paul Thomas Anderson",0.0555977874620756
-"28","Tony Gilroy",0.0904422719312248
-"29","Jason Reitman",0.0777623384031215
-"30","Julian Schnabel",0.413084565314194
-"31","Danny Boyle",0.363408700690521
-"32","Stephen Daldry",0.014621527490145
-"33","David Fincher",0.198144007635625
-"34","Ron Howard",0.0208104931106409
-"35","Gus Van Sant",0.0904422719312248
-"36","Kathryn Bigelow",0.150862351516891
-"37","James Cameron",0.255472695512811
-"38","Lee Daniels",0.0904422719312248
-"39","Jason Reitman",0.0777623384031215
-"40","Quentin Tarantino",0.0204744060072282
-"41","Tom Hooper",0.0765784165918961
-"42","Darren Aronofsky",0.047547647566216
-"43","Joel Coen",0.945183961662515
-"44","David Fincher",0.198144007635625
-"45","David O. Russell",0.0248497481552787
-"46","Michel Hazanavicius",0.370224170392467
-"47","Woody Allen",0.212092324249286
-"48","Terrence Malick",0.0777623384031215
-"49","Alexander Payne",0.0300209222188211
-"50","Martin Scorsese",0.261979706612048
-"51","Ang Lee",0.812947107076715
-"52","Michael Haneke",0.0309352772201807
-"53","David O. Russell",0.0248497481552787
-"54","Steven Spielberg",0.111072499696047
-"55","Benh Zeitlin",0.141764714099837
-"56","Alfonso Cuarón",0.615643947177242
-"57","Steve McQueen",0.047547647566216
-"58","Alexander Payne",0.0300209222188211
-"59","David O. Russell",0.0248497481552787
-"60","Martin Scorsese",0.261979706612048
-"61","Alejandro G. Iñárritu",0.349551673789863
-"62","Wes Anderson",0.0765784165918961
-"63","Richard Linklater",0.640051520051432
-"64","Bennett Miller",0.0890839475149668
-"65","Morten Tyldum",0.141764714099837
-"66","Alejandro G. Iñárritu",0.349551673789863
-"67","Lenny Abrahamson",0.0904422719312248
-"68","Tom McCarthy",0.048306225227212
-"69","Adam McKay",0.0890839475149668
-"70","George Miller",0.0705918002951663
-"71","Damien Chazelle",0.184309899360671
-"72","Mel Gibson",0.0221622821230548
-"73","Barry Jenkins",0.0777623384031215
-"74","Kenneth Lonergan",0.0437230896114046
-"75","Denis Villeneuve",0.0904422719312248
+"","name","pred.probs"
+"1","moonlight",0.143018671166736
+"2","arrival",0.00112356301427661
+"3","fences",0.000758668412232947
+"4","hacksaw-ridge",0.00240622659029086
+"5","hell-or-high-water",0.0298375427463902
+"6","hidden-figures",0.00135256939997442
+"7","la-la-land",0.192113572069239
+"8","lion",0.00118186684391922
+"9","manchester-by-the-sea",0.00458089193834388
+"10","spotlight",0.635585377014545
+"11","the-big-short",0.0563587122095056
+"12","bridge-of-spies",0.0627046227972383
+"13","brooklyn",0.0335413716875849
+"14","mad-max-fury-road",0.0597712688965671
+"15","the-martian",0.111994594270435
+"16","the-revenant",0.175075925329649
+"17","room",0.0684124858656322
+"18","birdman",0.019084952042333
+"19","american-sniper",0.443681960902003
+"20","boyhood",0.782210496481251
+"21","the-grand-budapest-hotel",0.162765747728915
+"22","the-imitation-game",0.0204514177206075
+"23","selma",0.0529196597530349
+"24","the-theory-of-everything",0.0522163259109857
+"25","whiplash",0.359128860688061
+"26","12-years-a-slave",0.97393726824335
+"27","american-hustle",0.0286705039566321
+"28","captain-phillips",0.24208994837395
+"29","dallas-buyers-club",0.0842364616735439
+"30","gravity",0.345404595409382
+"31","her",0.0107964778061435
+"32","nebraska",0.0276546198821607
+"33","philomena",0.00986287529606266
+"34","the-wolf-of-wall-street",0.0684780640730985
+"35","argo",0.883854042923152
+"36","amour",0.0979769368173266
+"37","beasts-of-the-southern-wild",0.0151285961873979
+"38","django-unchained",0.159889956913963
+"39","les-miserables",0.00202103557695083
+"40","life-of-pi",0.0255884525767922
+"41","lincoln",0.0529627001383898
+"42","silver-linings-playbook",0.107792695295065
+"43","zero-dark-thirty",0.359674243709016
+"44","the-artist",0.612538646143291
+"45","the-descendants",0.0637091357669813
+"46","extremely-loud-and-incredibly-close",8.882449350818e-05
+"47","the-help",0.00465209504617633
+"48","hugo",0.000979274457578885
+"49","midnight-in-paris",0.00474909499148158
+"50","moneyball",0.102099188216866
+"51","the-tree-of-life",0.000682598985521258
+"52","war-horse",0.00213007209746062
+"53","the-kings-speech",0.923363752614023
+"54","127-hours",0.00763398402373897
+"55","black-swan",0.0136204158757907
+"56","the-fighter",0.0105956542180668
+"57","inception",0.194040188556209
+"58","the-kids-are-all-right",0.000705222626414545
+"59","the-social-network",0.688217975551893
+"60","toy-story-3",0.0624971732541819
+"61","true-grit",0.00549878884626186
+"62","winters-bone",0.00191355247941326
+"63","the-hurt-locker",0.475107220586091
+"64","avatar",0.199020308604723
+"65","the-blind-side",0.00024565092245882
+"66","district-9",0.00270193427867457
+"67","an-education",0.00161815326556568
+"68","inglourious-basterds",0.00282612479634074
+"69","precious",0.00273254093297654
+"70","a-serious-man",0.0001143338867003
+"71","up",0.0483523548861451
+"72","up-in-the-air",0.0086198198500304
+"73","slumdog-millionaire",0.747190002865928
+"74","the-curious-case-of-benjamin-button",0.00975264504106567
+"75","frost/nixon",0.0203953285522478
+"76","milk",0.0572572169289631
+"77","the-reader",0.00240771907231576
+"78","no-country-for-old-men",0.270530960431443
+"79","atonement",0.140138423719222
+"80","juno",0.0620108234110991
+"81","michael-clayton",9.19010009267533e-05
+"82","there-will-be-blood",0.108051989432723
+"83","the-departed",0.666481542034637
+"84","babel",0.00931681919571216
+"85","letters-from-iwo-jima",0.0409110498260958
+"86","little-miss-sunshine",0.123226629432661
+"87","the-queen",0.0378768707048322
+"88","crash",0.105765613465029
+"89","brokeback-mountain",0.475721343509182
+"90","capote",0.0316622743016344
+"91","good-night-and-good-luck",0.00489320190734227
+"92","munich",0.00577610617158555
+"93","million-dollar-baby",0.430509401975058
+"94","the-aviator",0.0198910249259462
+"95","finding-neverland",0.00127688594326322
+"96","ray",0.0127999258703783
+"97","sideways",0.0146642781397814
+"98","the-lord-of-the-rings-the-return-of-the-king",0.4721173717397
+"99","lost-in-translation",0.0302915290236617
+"100","master-and-commander-the-far-side-of-the-world",0.0102198121859041
+"101","mystic-river",0.0720824476498262
+"102","seabiscuit",0.00156772349329768
+"103","chicago",0.197962621653412
+"104","gangs-of-new-york",0.0125798234743291
+"105","the-hours",0.0148646402943397
+"106","the-lord-of-the-rings-the-two-towers",0.291499107895161
+"107","the-pianist",0.0888640381451767
