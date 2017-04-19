@@ -11,7 +11,7 @@ data for.
 """
 ACTOR_OR_ACTRESS = "ACTOR"
 STARTING_YEAR = 2002
-ENDING_YEAR = 2016
+ENDING_YEAR = 2013
 
 
 headers = ["Name", "Year","OscarWon", "OscarLost", "SAGWon", "SAGLost",
@@ -79,7 +79,7 @@ class Entry():
 
     def update(self, category, new_value):
         """
-        Updates one of the movie award categories to *new_value*
+        Updates one of the award categories to *new_value*
 
         Parameters
         ----------
@@ -137,6 +137,9 @@ class AwardFile():
 
     def get_year_data(self, year):
         """
+        Gets the number of awards/nominations a person received for a specific
+        year.
+
         Parameters
         ----------
         year : int
@@ -153,6 +156,9 @@ class AwardFile():
 
     def get_summed_year_data(self, year_limit):
         """
+        Gets the number of all of the awards/nominations a person received up to
+        a specific year.
+
         Parameters
         ----------
         year : int
@@ -164,7 +170,7 @@ class AwardFile():
             A dictionary with the names of the people who won awards or were
             nominated for awards as the keys and for the values, a list
             containing the number of awards won as the zeroeth
-            index and the number of awards lost (how many nomination they
+            index and the number of awards lost (how many nominations they
             received) as the first index.
         """
 
@@ -189,6 +195,9 @@ class AwardFile():
 
 def prepare_csv_data():
     """
+    Combine all of the award files into one, limiting the people to only include
+    those that were nominated for an Oscar.
+
     Returns
     -------
     list of str
@@ -215,7 +224,7 @@ def prepare_csv_data():
         oscar_nomination_file = "Actresses/best_actress_nominations.txt"
 
     # Get the names that were nominated for an Oscar so we can filter our data
-    # to only include the relevent names of just those were nominated for an
+    # to only include the relevent names of just those who were nominated for an
     # Oscar.
     oscar_nomination_lines = []
     with open(oscar_nomination_file, "r") as f:
@@ -306,8 +315,9 @@ def prepare_csv_data():
                         entry_dictionary[name].update(headers[i+1], 1)
                     ##
 
-            # Each major header has a "Won" and a "Lost" category. By incrementing by
-            # 2, we go from one major header to the next (e.g., SAG to GG).
+            # Each major header has a "Won" and a "Lost" category. By
+            # incrementing by 2, we go from one major header to the next
+            # (e.g., SAG to GG).
             i += 2
 
         for name,entry in entry_dictionary.iteritems():
