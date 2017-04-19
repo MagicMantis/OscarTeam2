@@ -5,8 +5,13 @@ awards/nominations were received for that year only.
 
 To change the script to get actor data or actress data, change the variable
 ACTOR_OR_ACTRESS to "ACTOR" or "ACTRESS" respectively.
+
+Change the variables STARTING_YEAR and ENDING_YEAR to whatever years you want
+data for.
 """
 ACTOR_OR_ACTRESS = "ACTOR"
+STARTING_YEAR = 2002
+ENDING_YEAR = 2016
 
 
 headers = ["Name", "Year","OscarWon", "OscarLost", "SAGWon", "SAGLost",
@@ -219,7 +224,7 @@ def prepare_csv_data():
 
     oscar_line_index = 0
 
-    for year in range(2002,2017):
+    for year in range(STARTING_YEAR,ENDING_YEAR+1):
         list_of_data_dictionaries = []
 
         # NOTE: Uncomment this to get data upto each year
