@@ -1,9 +1,10 @@
-Name,Year,OscarWon,OscarLost,SAGWon,SAGLost,GGDramaWon,GGDramaLost,GGMusicalWon,GGMusicalLost,CCWon,CCLost,BAFTAWon,BAFTALost,
+Name,Year,OscarWon,OscarLost,SAGWon,SAGLost,GGDramaWon,GGDramaLost,GGMusicalWon,GGMusicalLost,CCWon,CCLost,BAFTAWon,BAFTALost
 Julianne Moore,2002,0,1,0,1,0,1,0,0,1,0,0,0
 Salma Hayek,2002,0,1,0,1,0,1,0,0,0,1,0,1
 Nicole Kidman,2002,1,0,0,1,1,0,0,0,0,1,1,0
 Diane Lane,2002,0,1,0,1,0,1,0,0,0,1,0,0
 Renée Zellweger,2002,0,1,1,0,0,0,1,0,0,0,0,1
+Keisha Castle-Hughes,2003,0,1,0,0,0,0,0,0,0,0,0,0
 Naomi Watts,2003,0,1,0,1,0,0,0,0,0,1,0,1
 Samantha Morton,2003,0,1,0,0,0,0,0,0,0,1,0,0
 Diane Keaton,2003,0,1,0,1,0,0,1,0,0,1,0,0
@@ -26,6 +27,7 @@ Kate Winslet,2006,0,1,0,1,0,1,0,0,0,1,0,1
 Marion Cotillard,2007,1,0,0,1,0,0,1,0,0,1,1,0
 Ellen Page,2007,0,1,0,1,0,0,0,1,0,1,0,1
 Cate Blanchett,2007,0,1,0,1,0,1,0,0,0,1,0,1
+Laura Linney,2007,0,1,0,0,0,0,0,0,0,0,0,0
 Julie Christie,2007,0,1,1,0,1,0,0,0,1,0,0,1
 Angelina Jolie,2008,0,1,0,1,0,1,0,0,0,1,0,1
 Meryl Streep,2008,0,1,1,0,0,1,0,1,0,0,0,1
