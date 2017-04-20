@@ -1,10 +1,9 @@
-Name,Year,OscarWon,OscarLost,SAGWon,SAGLost,GGDramaWon,GGDramaLost,GGMusicalWon,GGMusicalLost,CCWon,CCLost,BAFTAWon,BAFTALost
+Name,Year,OscarWon,OscarLost,SAGWon,SAGLost,GGDramaWon,GGDramaLost,GGMusicalWon,GGMusicalLost,CCWon,CCLost,BAFTAWon,BAFTALost,
 Julianne Moore,2002,0,1,0,1,0,1,0,0,1,0,0,0
 Salma Hayek,2002,0,1,0,1,0,1,0,0,0,1,0,1
 Nicole Kidman,2002,1,0,0,1,1,0,0,0,0,1,1,0
 Diane Lane,2002,0,1,0,1,0,1,0,0,0,1,0,0
 Renée Zellweger,2002,0,1,1,0,0,0,1,0,0,0,0,1
-Keisha Castle-Hughes,2003,0,1,0,0,0,0,0,0,0,0,0,0
 Naomi Watts,2003,0,1,0,1,0,0,0,0,0,1,0,1
 Samantha Morton,2003,0,1,0,0,0,0,0,0,0,1,0,0
 Diane Keaton,2003,0,1,0,1,0,0,1,0,0,1,0,0
@@ -27,15 +26,14 @@ Kate Winslet,2006,0,1,0,1,0,1,0,0,0,1,0,1
 Marion Cotillard,2007,1,0,0,1,0,0,1,0,0,1,1,0
 Ellen Page,2007,0,1,0,1,0,0,0,1,0,1,0,1
 Cate Blanchett,2007,0,1,0,1,0,1,0,0,0,1,0,1
-Laura Linney,2007,0,1,0,0,0,0,0,0,0,0,0,0
 Julie Christie,2007,0,1,1,0,1,0,0,0,1,0,0,1
 Angelina Jolie,2008,0,1,0,1,0,1,0,0,0,1,0,1
-Meryl Streep,2008,0,1,1,0,0,1,0,1,0,0,0,1
-Anne Hathaway,2008,0,1,0,1,0,1,0,0,0,0,0,0
+Meryl Streep,2008,0,1,1,0,0,1,0,1,1,0,0,1
+Anne Hathaway,2008,0,1,0,1,0,1,0,0,1,0,0,0
 Kate Winslet,2008,1,0,0,1,1,0,0,0,0,0,0,1
 Melissa Leo,2008,0,1,0,1,0,0,0,0,0,1,0,0
-Sandra Bullock,2009,1,0,1,0,1,0,0,1,0,0,0,0
-Meryl Streep,2009,0,1,0,1,0,0,0,1,0,0,0,1
+Sandra Bullock,2009,1,0,1,0,1,0,0,1,1,0,0,0
+Meryl Streep,2009,0,1,0,1,0,0,0,1,1,0,0,1
 Helen Mirren,2009,0,1,0,1,0,1,0,0,0,0,0,0
 Carey Mulligan,2009,0,1,0,1,0,1,0,0,0,1,1,0
 Gabourey Sidibe,2009,0,1,0,1,0,1,0,0,0,1,0,1
@@ -59,18 +57,3 @@ Cate Blanchett,2013,1,0,1,0,1,0,0,0,1,0,1,0
 Amy Adams,2013,0,1,0,0,0,0,1,0,0,0,0,1
 Sandra Bullock,2013,0,1,0,1,0,1,0,0,0,1,0,1
 Meryl Streep,2013,0,1,0,1,0,0,0,1,0,1,0,0
-Marion Cotillard,2014,0,1,0,0,0,0,0,0,0,1,0,0
-Julianne Moore,2014,1,0,1,0,1,0,0,1,1,0,1,0
-Rosamund Pike,2014,0,1,0,1,0,1,0,0,0,1,0,1
-Felicity Jones,2014,0,1,0,1,0,1,0,0,0,1,0,1
-Reese Witherspoon,2014,0,1,0,1,0,1,0,0,0,1,0,1
-Jennifer Lawrence,2015,0,1,0,0,0,0,1,0,0,1,0,0
-Cate Blanchett,2015,0,1,0,1,0,1,0,0,0,1,0,1
-Charlotte Rampling,2015,0,1,0,0,0,0,0,0,0,1,0,0
-Brie Larson,2015,1,0,1,0,1,0,0,0,1,0,1,0
-Saoirse Ronan,2015,0,1,0,1,0,1,0,0,0,1,0,1
-Isabelle Huppert,2016,0,1,0,0,1,0,0,0,0,1,0,0
-Natalie Portman,2016,0,1,0,1,0,1,0,0,1,0,0,1
-Ruth Negga,2016,0,1,0,0,0,1,0,0,0,1,0,0
-Meryl Streep,2016,0,1,0,1,0,0,0,1,0,0,0,1
-Emma Stone,2016,1,0,1,0,0,0,1,0,0,1,1,0

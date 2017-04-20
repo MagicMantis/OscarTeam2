@@ -9,10 +9,13 @@ ACTOR_OR_ACTRESS to "ACTOR" or "ACTRESS" respectively.
 Change the variables STARTING_YEAR and ENDING_YEAR to whatever years you want
 data for.
 """
-ACTOR_OR_ACTRESS = "ACTOR"
+ACTOR_OR_ACTRESS = "ACTRESS"
 STARTING_YEAR = 2002
 ENDING_YEAR = 2013
 
+# TODO:
+#   1. Make sure people that were nominated for Oscars, but didn't win any other
+#      awards are included in the final csv
 
 headers = ["Name", "Year","OscarWon", "OscarLost", "SAGWon", "SAGLost",
            "GGDramaWon", "GGDramaLost", "GGMusicalWon", "GGMusicalLost",
@@ -118,13 +121,15 @@ class AwardFile():
                     continue
 
                 year = int(line.split(",")[0])
-                name = line.strip().split(",")[1]
+                name = line.strip().split(",")[1].split(" (TIE)")[0]
 
                 if year != old_year:
                     self.year_data[old_year] = name_data
                     name_data = {} # name => number of awards/nominations
 
                     old_year = year
+                    is_winner = True
+                elif line.strip().split(",")[1].split(" ")[-1] == "(TIE)":
                     is_winner = True
 
                 if is_winner == True:
@@ -179,7 +184,6 @@ class AwardFile():
         for year,names in sorted(self.year_data.iteritems(), reverse=False):
             if year <= year_limit:
                 for name,num_awards in names.iteritems():
-                    # print year, name, num_awards
                     if name in awards:
                         if num_awards == 1:
                             awards[name][0] += 1
