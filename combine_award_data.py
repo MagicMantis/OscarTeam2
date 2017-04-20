@@ -11,7 +11,7 @@ data for.
 """
 ACTOR_OR_ACTRESS = "ACTRESS"
 STARTING_YEAR = 2002
-ENDING_YEAR = 2013
+ENDING_YEAR = 2016
 
 # TODO:
 #   1. Make sure people that were nominated for Oscars, but didn't win any other
