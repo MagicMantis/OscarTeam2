@@ -1,4 +1,4 @@
-Name,Year,OscarWon,OscarLost,SAGWon,SAGLost,GGDramaWon,GGDramaLost,GGMusicalWon,GGMusicalLost,CCWon,CCLost,BAFTAWon,BAFTALost,
+Name,Year,OscarWon,OscarLost,SAGWon,SAGLost,GGDramaWon,GGDramaLost,GGMusicalWon,GGMusicalLost,CCWon,CCLost,BAFTAWon,BAFTALost
 Michael Caine,2002,0,1,0,0,0,1,0,0,0,0,0,1
 Nicolas Cage,2002,0,1,0,1,0,0,0,1,0,0,0,1
 Adrien Brody,2002,1,0,0,1,0,1,0,0,0,0,0,1
@@ -11,6 +11,7 @@ Jude Law,2003,0,1,0,0,0,1,0,0,0,0,0,1
 Ben Kingsley,2003,0,1,0,1,0,1,0,0,0,1,0,0
 Don Cheadle,2004,0,1,0,1,0,1,0,0,0,1,0,0
 Johnny Depp,2004,0,1,0,1,0,1,0,0,0,1,0,1
+Clint Eastwood,2004,0,1,0,0,0,0,0,0,0,0,0,0
 Jamie Foxx,2004,1,0,1,0,0,0,1,0,1,0,1,0
 Leonardo DiCaprio,2004,0,1,0,1,1,0,0,0,0,1,0,1
 David Strathairn,2005,0,1,0,1,0,1,0,0,0,1,0,1
@@ -25,6 +26,7 @@ Peter O'Toole,2006,0,1,0,1,0,1,0,0,0,1,0,1
 Will Smith,2006,0,1,0,1,0,1,0,0,0,1,0,0
 Daniel Day-Lewis,2007,1,0,1,0,1,0,0,0,1,0,1,0
 Johnny Depp,2007,0,1,0,0,0,0,1,0,0,1,0,0
+Tommy Lee Jones,2007,0,1,0,0,0,0,0,0,0,0,0,0
 George Clooney,2007,0,1,0,1,0,1,0,0,0,1,0,1
 Viggo Mortensen,2007,0,1,0,1,0,1,0,0,0,1,0,1
 Richard Jenkins,2008,0,1,0,1,0,0,0,0,0,1,0,0
@@ -57,17 +59,3 @@ Chiwetel Ejiofor,2013,0,1,0,1,0,1,0,0,0,1,1,0
 Bruce Dern,2013,0,1,0,1,0,0,0,1,0,1,0,1
 Leonardo DiCaprio,2013,0,1,0,0,0,0,1,0,0,0,0,1
 Christian Bale,2013,0,1,0,0,0,0,0,1,0,1,0,1
-Steve Carell,2014,0,1,0,1,0,1,0,0,0,0,0,0
-Eddie Redmayne,2014,1,0,1,0,1,0,0,0,0,1,1,0
-Benedict Cumberbatch,2014,0,1,0,1,0,1,0,0,0,1,0,1
-Michael Keaton,2014,0,1,0,1,0,0,1,0,1,0,0,1
-Matt Damon,2015,0,1,0,0,0,0,1,0,0,1,0,1
-Bryan Cranston,2015,0,1,0,1,0,1,0,0,0,1,0,1
-Eddie Redmayne,2015,0,1,0,1,0,1,0,0,0,1,0,1
-Michael Fassbender,2015,0,1,0,1,0,1,0,0,0,1,0,1
-Leonardo DiCaprio,2015,1,0,1,0,1,0,0,0,1,0,1,0
-Andrew Garfield,2016,0,1,0,1,0,1,0,0,0,1,0,1
-Viggo Mortensen,2016,0,1,0,1,0,1,0,0,0,0,0,1
-Denzel Washington,2016,0,1,1,0,0,1,0,0,0,1,0,0
-Casey Affleck,2016,1,0,0,1,1,0,0,0,1,0,1,0
-Ryan Gosling,2016,0,1,0,1,0,0,1,0,0,1,0,1
