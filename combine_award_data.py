@@ -9,9 +9,9 @@ ACTOR_OR_ACTRESS to "ACTOR" or "ACTRESS" respectively.
 Change the variables STARTING_YEAR and ENDING_YEAR to whatever years you want
 data for.
 """
-ACTOR_OR_ACTRESS = "ACTOR"
+ACTOR_OR_ACTRESS = "ACTRESS"
 STARTING_YEAR = 2002
-ENDING_YEAR = 2013
+ENDING_YEAR = 2016
 
 
 headers = ["Name", "Year","OscarWon", "OscarLost", "SAGWon", "SAGLost",
