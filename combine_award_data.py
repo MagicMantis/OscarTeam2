@@ -9,9 +9,9 @@ ACTOR_OR_ACTRESS to "ACTOR" or "ACTRESS" respectively.
 Change the variables STARTING_YEAR and ENDING_YEAR to whatever years you want
 data for.
 """
-ACTOR_OR_ACTRESS = "ACTRESS"
+ACTOR_OR_ACTRESS = "ACTOR"
 STARTING_YEAR = 2002
-ENDING_YEAR = 2016
+ENDING_YEAR = 2013
 
 # TODO:
 #   1. Make sure people that were nominated for Oscars, but didn't win any other
@@ -331,6 +331,44 @@ def prepare_csv_data():
         # for the next year.
         oscar_line_index += 5
 
+    # Make sure that all Oscar nominations are included in the final csv file
+    counter = 0
+
+    for i in range(0, len(oscar_nomination_lines)):
+        if i == len(csv_lines):
+            break
+
+        name = oscar_nomination_lines[i].strip()
+
+        names_already_in_csv = []
+        for n in csv_lines[counter:counter+5]:
+            names_already_in_csv.append(n.split(",")[0].strip())
+
+        if name in names_already_in_csv:
+            if (i+1) % 5 == 0:
+                counter += 5
+
+            continue
+        else:
+            new_line = name + "," + csv_lines[counter].split(",")[1] + ","
+
+            if name == oscar_nomination_lines[counter]:
+                # WINNER
+                new_line += "1,0,"
+            else:
+                # LOSER
+                new_line += "0,1,"
+
+            for header in headers[4:]:
+                new_line += "0,"
+
+            new_line = new_line[:-1] + "\n"
+
+            csv_lines.insert(i, new_line)
+
+        if (i+1 )% 5 == 0:
+            counter += 5
+
     return csv_lines
 
 def write_csv(csv_lines):
@@ -341,11 +379,13 @@ def write_csv(csv_lines):
         file_name = "Actresses/actress_award_data_formatted.csv"
 
     # Write the header information
-    with open(file_name, "w") as f:
-        for header in headers:
-            f.write(header + ",")
+    line = ""
+    for header in headers:
+        line += header + ","
+    line = line[:-1] + "\n"
 
-        f.write("\n")
+    with open(file_name, "w") as f:
+        f.write(line)
 
     # Write the values
     with open(file_name, "a") as f:
