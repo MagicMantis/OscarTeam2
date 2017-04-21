@@ -4,22 +4,27 @@ Compiles all of the different award files into one. Each year shows how many
 awards/nominations were received for that year only.
 
 To change the script to get actor data or actress data, change the variable
-ACTOR_OR_ACTRESS to "ACTOR" or "ACTRESS" respectively.
+AWARD_TYPE to "ACTOR", "ACTRESS", or "DIRECTOR" respectively.
 
 Change the variables STARTING_YEAR and ENDING_YEAR to whatever years you want
 data for.
 """
-ACTOR_OR_ACTRESS = "ACTOR"
+AWARD_TYPE = "DIRECTOR"
 STARTING_YEAR = 2002
 ENDING_YEAR = 2013
 
-# TODO:
-#   1. Make sure people that were nominated for Oscars, but didn't win any other
-#      awards are included in the final csv
+headers = []
 
-headers = ["Name", "Year","OscarWon", "OscarLost", "SAGWon", "SAGLost",
-           "GGDramaWon", "GGDramaLost", "GGMusicalWon", "GGMusicalLost",
-           "CCWon", "CCLost", "BAFTAWon", "BAFTALost"]
+# NOTE: headers[0:3] (Name, Year, OscarWon, OscarLost) should NOT be changed.
+#       The rest can be changed as long as they are changed every where in the
+#       file.
+if AWARD_TYPE == "ACTOR" or AWARD_TYPE == "ACTRESS":
+    headers = ["Name", "Year","OscarWon", "OscarLost", "SAGWon", "SAGLost",
+               "GGDramaWon", "GGDramaLost", "GGMusicalWon", "GGMusicalLost",
+               "CCWon", "CCLost", "BAFTAWon", "BAFTALost"]
+elif AWARD_TYPE == "DIRECTOR":
+    headers = ["Name", "Year", "OscarWon", "OscarLost", "GGWon", "GGLost",
+               "CCWon", "CCLost", "BAFTAWon", "BAFTALost"]
 
 class Entry():
     """
@@ -46,22 +51,33 @@ class Entry():
 
     def __init__(self, Year=0, OscarWon=0, OscarLost=0, SAGWon=0, SAGLost=0,
                  GGDramaWon=0, GGDramaLost=0, GGMusicalWon=0, GGMusicalLost=0,
-                 CCWon=0, CCLost=0, BAFTAWon=0, BAFTALost=0):
+                 GGWon=0, GGLost=0, CCWon=0, CCLost=0, BAFTAWon=0, BAFTALost=0):
         self.categories = {}
 
-        self.categories["Year"] = Year
-        self.categories["OscarWon"] = OscarWon
-        self.categories["OscarLost"] = OscarLost
-        self.categories["SAGWon"] = SAGWon
-        self.categories["SAGLost"] = SAGLost
-        self.categories["GGDramaWon"] = GGDramaWon
-        self.categories["GGDramaLost"] = GGDramaLost
-        self.categories["GGMusicalWon"] = GGMusicalWon
-        self.categories["GGMusicalLost"] = GGMusicalLost
-        self.categories["CCWon"] = CCWon
-        self.categories["CCLost"] = CCLost
-        self.categories["BAFTAWon"] = BAFTAWon
-        self.categories["BAFTALost"] = BAFTALost
+        if AWARD_TYPE == "ACTOR" or AWARD_TYPE == "ACTRESS":
+            self.categories["Year"] = Year
+            self.categories["OscarWon"] = OscarWon
+            self.categories["OscarLost"] = OscarLost
+            self.categories["SAGWon"] = SAGWon
+            self.categories["SAGLost"] = SAGLost
+            self.categories["GGDramaWon"] = GGDramaWon
+            self.categories["GGDramaLost"] = GGDramaLost
+            self.categories["GGMusicalWon"] = GGMusicalWon
+            self.categories["GGMusicalLost"] = GGMusicalLost
+            self.categories["CCWon"] = CCWon
+            self.categories["CCLost"] = CCLost
+            self.categories["BAFTAWon"] = BAFTAWon
+            self.categories["BAFTALost"] = BAFTALost
+        elif AWARD_TYPE == "DIRECTOR":
+            self.categories["Year"] = Year
+            self.categories["OscarWon"] = OscarWon
+            self.categories["OscarLost"] = OscarLost
+            self.categories["GGWon"] = GGWon
+            self.categories["GGLost"] = GGLost
+            self.categories["CCWon"] = CCWon
+            self.categories["CCLost"] = CCLost
+            self.categories["BAFTAWon"] = BAFTAWon
+            self.categories["BAFTALost"] = BAFTALost
 
     def __lt__(self, other):
         return self.categories[year] < other.categories
@@ -210,7 +226,7 @@ def prepare_csv_data():
     csv_lines = []
 
     # Get the files that we'll be using
-    if ACTOR_OR_ACTRESS == "ACTOR":
+    if AWARD_TYPE == "ACTOR":
         sag_award_file = AwardFile("Actors/SAG_Actors.csv")
         gg_drama_award_file = AwardFile("Actors/GG_Drama_Actors.csv")
         gg_musical_award_file = AwardFile("Actors/GG_Musical_Actors.csv")
@@ -218,7 +234,7 @@ def prepare_csv_data():
         bafta_award_file = AwardFile("Actors/BAFTA_Actors.csv")
 
         oscar_nomination_file = "Actors/best_actor_nominations.txt"
-    elif ACTOR_OR_ACTRESS == "ACTRESS":
+    elif AWARD_TYPE == "ACTRESS":
         sag_award_file = AwardFile("Actresses/SAG_Actress.csv")
         gg_drama_award_file = AwardFile("Actresses/GG_Drama_Actress.csv")
         gg_musical_award_file = AwardFile("Actresses/GG_Musical_Actress.csv")
@@ -226,6 +242,12 @@ def prepare_csv_data():
         bafta_award_file = AwardFile("Actresses/BAFTA_Actress.csv")
 
         oscar_nomination_file = "Actresses/best_actress_nominations.txt"
+    elif AWARD_TYPE == "DIRECTOR":
+        gg_award_file = AwardFile("Directors/GG_Directors.csv")
+        cc_award_file = AwardFile("Directors/CC_Directors.csv")
+        bafta_award_file = AwardFile("Directors/BAFTA_Directors.csv")
+
+        oscar_nomination_file = "Directors/best_director_nominations.txt"
 
     # Get the names that were nominated for an Oscar so we can filter our data
     # to only include the relevent names of just those who were nominated for an
@@ -241,27 +263,44 @@ def prepare_csv_data():
         list_of_data_dictionaries = []
 
         # NOTE: Uncomment this to get data upto each year
-        # sag_data = sag_award_file.get_summed_year_data(year)
-        # gg_data = gg_drama_award_file.get_summed_year_data(year)
-        # cc_data = cc_award_file.get_summed_year_data(year)
-        # bafta_data = bafta_award_file.get_summed_year_data(year)
+        # if AWARD_TYPE == "ACTOR" or AWARD_TYPE == "ACTRESS":
+        #     sag_data = sag_award_file.get_summed_year_data(year)
+        #     gg_drama_data = gg_drama_award_file.get_summed_year_data(year)
+        #     gg_musical_data = gg_musical_award_file.get_summed_year_data(year)
+        #     cc_data = cc_award_file.get_summed_year_data(year)
+        #     bafta_data = bafta_award_file.get_summed_year_data(year)
+        # elif AWARD_TYPE == "DIRECTOR":
+        #     gg_data = gg_award_file.get_summed_year_data(year)
+        #     cc_data = cc_award_file.get_summed_year_data(year)
+        #     bafta_data = bafta_award_file.get_summed_year_data(year)
         ##
 
         # NOTE: Comment this if you want to get data upto each year
         # Get the award dictionaries for each award show
-        sag_data = sag_award_file.get_year_data(year)
-        gg_drama_data = gg_drama_award_file.get_year_data(year)
-        gg_musical_data = gg_musical_award_file.get_year_data(year)
-        cc_data = cc_award_file.get_year_data(year)
-        bafta_data = bafta_award_file.get_year_data(year)
+        if AWARD_TYPE == "ACTOR" or AWARD_TYPE == "ACTRESS":
+            sag_data = sag_award_file.get_year_data(year)
+            gg_drama_data = gg_drama_award_file.get_year_data(year)
+            gg_musical_data = gg_musical_award_file.get_year_data(year)
+            cc_data = cc_award_file.get_year_data(year)
+            bafta_data = bafta_award_file.get_year_data(year)
+        elif AWARD_TYPE == "DIRECTOR":
+            gg_data = gg_award_file.get_year_data(year)
+            cc_data = cc_award_file.get_year_data(year)
+            bafta_data = bafta_award_file.get_year_data(year)
         ##
 
         # put all of the dictionaries into a list so we can iterate through them
-        list_of_data_dictionaries.append(sag_data)
-        list_of_data_dictionaries.append(gg_drama_data)
-        list_of_data_dictionaries.append(gg_musical_data)
-        list_of_data_dictionaries.append(cc_data)
-        list_of_data_dictionaries.append(bafta_data)
+
+        if AWARD_TYPE == "ACTOR" or AWARD_TYPE == "ACTRESS":
+            list_of_data_dictionaries.append(sag_data)
+            list_of_data_dictionaries.append(gg_drama_data)
+            list_of_data_dictionaries.append(gg_musical_data)
+            list_of_data_dictionaries.append(cc_data)
+            list_of_data_dictionaries.append(bafta_data)
+        elif AWARD_TYPE == "DIRECTOR":
+            list_of_data_dictionaries.append(gg_data)
+            list_of_data_dictionaries.append(cc_data)
+            list_of_data_dictionaries.append(bafta_data)
 
         entry_dictionary = {}
 
@@ -373,10 +412,12 @@ def prepare_csv_data():
 
 def write_csv(csv_lines):
     # Set the file that we'll write out to.
-    if ACTOR_OR_ACTRESS == "ACTOR":
+    if AWARD_TYPE == "ACTOR":
         file_name = "Actors/actor_award_data_formatted.csv"
-    elif ACTOR_OR_ACTRESS == "ACTRESS":
+    elif AWARD_TYPE == "ACTRESS":
         file_name = "Actresses/actress_award_data_formatted.csv"
+    elif AWARD_TYPE == "DIRECTOR":
+        file_name = "Directors/director_award_data_formatted.csv"
 
     # Write the header information
     line = ""
